@@ -119,7 +119,7 @@
         </ufa:FormActivity.FormFieldsCollection>
       </ufa:FormActivity>
     </Sequence>
-    <beg:ExcelCharts ChartTitle="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="B2:C10" ChartType="LineStacked" DisplayName="Excel Charts" FilePath="C:\Users\ekarshakova\Documents\UiPath\CBR\CentralBankRF\RC_F04_01_2021_T15_01_2021.xlsx" sap:VirtualizedContainerService.HintSize="496.666666666667,72" sap2010:WorkflowViewState.IdRef="ExcelCharts_1" SheetName="RC">
+    <beg:ExcelCharts ChartTitle="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="B2:C10" ChartType="LineMarkersStacked" DisplayName="Excel Charts" FilePath="C:\Users\ekarshakova\Documents\UiPath\CBR\CentralBankRF\RC_F04_01_2021_T15_01_2021.xlsx" sap:VirtualizedContainerService.HintSize="496.666666666667,72" sap2010:WorkflowViewState.IdRef="ExcelCharts_1" SheetName="RC">
       <beg:ExcelCharts.Options>
         <beg:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </beg:ExcelCharts.Options>
