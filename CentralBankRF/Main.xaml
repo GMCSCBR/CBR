@@ -95,7 +95,7 @@
         <OutArgument x:TypeArguments="sg:CultureInfo">[CultureInfo.CurrentCulture]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sg:CultureInfo">[New System.Globalization.CultureInfo("ru-RU")]</InArgument>
+        <InArgument x:TypeArguments="sg:CultureInfo">[New System.Globalization.CultureInfo("RU-ru")]</InArgument>
       </Assign.Value>
     </Assign>
     <Sequence sap:VirtualizedContainerService.HintSize="499,1172" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -134,7 +134,7 @@
                   <OutArgument x:TypeArguments="x:String">[FirstData]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[CDate(listJson.Item("day")).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[CDate(listJson.Item("day")).ToString("dd.MM.yyyy")]</InArgument>
                 </Assign.Value>
               </Assign>
               <Assign sap:VirtualizedContainerService.HintSize="377,60" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -142,7 +142,7 @@
                   <OutArgument x:TypeArguments="x:String">[EndData]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[listJson.Item("end").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[CDate(listJson.Item("end")).ToString("dd.MM.yyyy")]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API REQUEST(test) workflow" sap:VirtualizedContainerService.HintSize="377,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="API REQUEST(test).xaml">
