@@ -3,14 +3,16 @@
     <x:Property Name="in_FirstData" Type="InArgument(x:String)" />
     <x:Property Name="in_EndData" Type="InArgument(x:String)" />
     <x:Property Name="in_ID" Type="InArgument(x:String)" />
+    <x:Property Name="io_Values" Type="InOutArgument(x:Object)" />
+    <x:Property Name="io_Data" Type="InOutArgument(x:Object)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1248.66666666667,827.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,1556</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>API_REQUEST_test__1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="52">
+    <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -42,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -75,18 +77,22 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="API_REQUEST_test_" sap:VirtualizedContainerService.HintSize="376,318.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="API_REQUEST_test_" sap:VirtualizedContainerService.HintSize="454,1391" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Answer" />
-      <Variable x:TypeArguments="sxl:XDocument" Name="answerdes" />
-      <Variable x:TypeArguments="x:String" Name="asd" />
+      <Variable x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" Name="XMLAtrib" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="XMLData" />
+      <Variable x:TypeArguments="scg:IEnumerable(sxl:XNode)" Name="XMLNodes" />
+      <Variable x:TypeArguments="x:String" Name="XMLString" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="XMLDocument" />
+      <Variable x:TypeArguments="x:Object" Name="Record" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Посылем запрос ЦБРФ" EndPoint="[&quot;http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=&quot; +in_FirstData+ &quot;&amp;date_req2=&quot;+in_EndData+&quot;&amp;VAL_NM_RQ=&quot; + in_ID]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[Answer]" TimeoutMS="6000">
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Посылем запрос ЦБРФ" EndPoint="[&quot;http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=&quot; +in_FirstData+ &quot;&amp;date_req2=&quot;+in_EndData+&quot;&amp;VAL_NM_RQ=&quot; + in_ID]" sap:VirtualizedContainerService.HintSize="412,22" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[Answer]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -103,7 +109,30 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <WriteLine DisplayName="Вывод запрашиваемого адреса" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=&quot; +in_FirstData+ &quot;&amp;date_req2=&quot;+in_EndData+&quot;&amp;VAL_NM_RQ=&quot; + in_ID]" />
-    <ui:DeserializeXml DisplayName="Получение информации с ЦБРФ, занесение в документ" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[answerdes]" XMLString="[Answer]" />
+    <WriteLine DisplayName="Вывод запрашиваемого адреса" sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=&quot; +in_FirstData+ &quot;&amp;date_req2=&quot;+in_EndData+&quot;&amp;VAL_NM_RQ=&quot; + in_ID]" />
+    <ui:DeserializeXml DisplayName="Получение информации с ЦБРФ, занесение в документ" sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[XMLData]" XMLString="[Answer]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[XMLData.ToString]" />
+    <ui:GetNodes XMLString="{x:Null}" DisplayName="Get XML Nodes" ExistingXML="[XMLData]" sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="GetNodes_1" XMLNodes="[XMLNodes]" />
+    <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath" ExistingXML="[XMLData]" sap:VirtualizedContainerService.HintSize="412,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[Record]" XPathExpression="//Record" />
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,706" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[CType(Record, IEnumerable(of object))]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Тело" sap:VirtualizedContainerService.HintSize="376,572" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_2" Result="[io_Values]" XMLString="[item.ToString]" XPathExpression="string(//Value)" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[io_Values]" />
+            <ui:ExecuteXPath ExistingXML="{x:Null}" DisplayName="Execute XPath" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="ExecuteXPath_3" Result="[io_Data]" XMLString="[item.ToString]" XPathExpression="string(//@Date)" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[io_Data]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
   </Sequence>
 </Activity>
