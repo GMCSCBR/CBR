@@ -16,7 +16,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1248.66666666667,1919.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>608,1919.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
@@ -157,24 +157,12 @@
             </Assign>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API REQUEST(test) workflow" sap:VirtualizedContainerService.HintSize="374.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="API REQUEST(test).xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FirstData">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FirstData" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_EndData">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EndData" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ID">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ID" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:Object" x:Key="io_Values">
-                  <mva:VisualBasicReference x:TypeArguments="x:Object" ExpressionText="Values" />
-                </InOutArgument>
-                <InOutArgument x:TypeArguments="x:Object" x:Key="io_Data">
-                  <mva:VisualBasicReference x:TypeArguments="x:Object" ExpressionText="Data" />
-                </InOutArgument>
-                <OutArgument x:TypeArguments="sd:DataTable" x:Key="ValuesDT">
-                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="ReportDT" />
-                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FirstData">[FirstData]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EndData">[EndData]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ID">[ID]</InArgument>
+                <InOutArgument x:TypeArguments="x:Object" x:Key="io_Values">[Values]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:Object" x:Key="io_Data">[Data]</InOutArgument>
+                <OutArgument x:TypeArguments="sd:DataTable" x:Key="ValuesDT">[ReportDT]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -226,7 +214,7 @@
           <beg:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
         </beg:ExcelCharts.Options>
         <beg:ExcelCharts.Size>
-          <beg:ChartSize Height="250" Left="50" Top="50" Width="250" />
+          <beg:ChartSize Height="400" Left="50" Top="50" Width="400" />
         </beg:ExcelCharts.Size>
       </beg:ExcelCharts>
       <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.666666666667,187.333333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="C:\Users\ekarshakova\Documents\UiPath\CBR\CentralBankRF\index.html">
